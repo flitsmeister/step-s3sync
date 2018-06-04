@@ -54,9 +54,9 @@ main() {
   fi
 
   set +e
-  local SYNC="$WERCKER_STEP_ROOT/s3cmd sync $WERCKER_S3SYNC_OPTS $WERCKER_S3SYNC_DELETE_REMOVED --verbose ./ $WERCKER_S3SYNC_BUCKET_URL"
+  SYNC="$WERCKER_STEP_ROOT/s3cmd sync $WERCKER_S3SYNC_OPTS $WERCKER_S3SYNC_DELETE_REMOVED --verbose ./ $WERCKER_S3SYNC_BUCKET_URL"
   debug "$SYNC"
-  local sync_output=$($SYNC)
+  sync_output=$($SYNC)
 
   if [[ $? -ne 0 ]];then
       echo "$sync_output"
